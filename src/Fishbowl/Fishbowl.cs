@@ -168,9 +168,13 @@ namespace FishbowlConnector
             dynamic cmd = new { LogoutRq = "" };
             cmd = BeginRequest(cmd);
 
-            dynamic resp = JsonConvert.DeserializeObject(_connection.sendCommand(JsonConvert.SerializeObject(cmd)));
+            try
+            {
+                dynamic resp = JsonConvert.DeserializeObject(_connection.sendCommand(JsonConvert.SerializeObject(cmd)));
 
-            _connection.Dispose();
+                _connection.Dispose();
+            }
+            catch { }
         }
     }
 }
