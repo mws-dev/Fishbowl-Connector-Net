@@ -54,7 +54,7 @@ namespace FishbowlConnector
 
         private void Login()
         {
-            dynamic cmd = new { LoginRq = new { IAID = 3399, IAName = "Application Name", IADescription = "Application Description", UserName = _user, UserPassword = _pass } };
+            dynamic cmd = new { LoginRq = new { IAID = 3399 /* Application ID, can be any number */, IAName = "Application Name", IADescription = "Application Description", UserName = _user, UserPassword = _pass } };
             cmd = BeginRequest(cmd);
             string r = _connection.sendCommand(JsonConvert.SerializeObject(cmd));
             if (r == "")
