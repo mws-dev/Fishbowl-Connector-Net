@@ -7,7 +7,7 @@ Check https://www.fishbowlinventory.com/wiki/Fishbowl_API for full command docum
 
 Dependent on:
 
-- [LumenWorks.Framework.IO](https://www.nuget.org/packages/LumenWorks.Framework.IO/)
+- [LumenWorks.Framework.IO](https://www.nuget.org/packages/LumenWorks.Framework.IO/) (to be replaced with [NLight](https://www.nuget.org/packages/nlight))
 - [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)
 
 ## Example Usage
