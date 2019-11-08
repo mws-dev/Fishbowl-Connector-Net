@@ -19,6 +19,8 @@ string codes = "'CODE123','CODE2345'";
 using (Fishbowl fishbowl = new Fishbowl("hostname.myfishbowl.com", 28192, "username", "password"))
 {
     fishbowl.Connect();
+    // No access to a db driver library so no parameterized queries allowed
+    // BE VERY CAREFUL WHAT YOU PASS HERE
     DataTable product = fishbowl.ExecuteQuery(query: String.Format("SELECT p.id, p.num, p.price, p.partId, qi.qtyonhand, p.sku FROM product p JOIN qtyinventory qi ON p.partId = qi.partid WHERE p.sku IN ({0})", codes));
     DataTable product = fishbowl.ExecuteQuery(name: "ListProducts"); // Use saved query by name
 }
@@ -44,3 +46,4 @@ using (Fishbowl fishbowl = new Fishbowl("hostname.myfishbowl.com", 28192, "usern
 # Known Issues
 - Not all commands are implemented. Pull requests welcome!
 - It's slow. It has to `Thread.Sleep()` for a minimum of 1 second between sending the request and receiving a response or the response will ***always*** be empty.
+- You cannot use parameterized queries. So you have to control what gets sent or write your own SQL injection filter (or use one that someone else has already written).
