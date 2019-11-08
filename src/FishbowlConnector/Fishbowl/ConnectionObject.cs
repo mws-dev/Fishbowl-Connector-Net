@@ -6,11 +6,10 @@ using System.Net.Sockets;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using EShop;
 
 namespace FishbowlConnector
 {
-    class ConnectionObject : IDisposable
+    internal class ConnectionObject : IDisposable
     {
         private TcpClient tc;
         private NetworkStream tcS;
@@ -37,7 +36,7 @@ namespace FishbowlConnector
         /**
          * Send the XML request string
          */
-        public String sendCommand(string command)
+        internal String sendCommand(string command)
         {
             try
             {
@@ -58,7 +57,6 @@ namespace FishbowlConnector
             }
             catch (Exception ex)
             {
-                Notification.SendError(ex);
                 return "";
             }
         }

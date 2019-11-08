@@ -8,6 +8,9 @@ using System.Text;
 
 namespace FishbowlConnector
 {
+    /// <summary>
+    /// Primary interaction class, wrap in a <see langword="using" /> statement to automatically log out and close the connection
+    /// </summary>
     public class Fishbowl : IDisposable
     {
         private string _key = "";
@@ -19,6 +22,13 @@ namespace FishbowlConnector
 
         private ConnectionObject _connection;
 
+        /// <summary>
+        /// Constructor for specifying credentials
+        /// </summary>
+        /// <param name="host"></param>
+        /// <param name="port"></param>
+        /// <param name="user"></param>
+        /// <param name="password"></param>
         public Fishbowl(string host, int port, string user, string password)
         {
             _host = host;
@@ -32,6 +42,9 @@ namespace FishbowlConnector
             _pass = md5Pass;
         }
 
+        /// <summary>
+        /// Use for connecting and logging in
+        /// </summary>
         public void Connect()
         {
             _connection = new ConnectionObject(_host, _port);
@@ -68,6 +81,12 @@ namespace FishbowlConnector
                 throw new Exception("Login Error " + resp.FbiJson.FbiMsgsRs.LoginRs.statusCode + ": " + resp.FbiJson.FbiMsgsRs.LoginRs.statusMessage.Value);
         }
 
+        /// <summary>
+        /// Execute a query against the Fishbowl database
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public DataTable ExecuteQuery(string query = "", string name = "")
         {
             dynamic cmd = new { ExecuteQueryRq = new { Name = name, Query = query } };
@@ -86,6 +105,11 @@ namespace FishbowlConnector
             return ConvertFromJson(resp);
         }
 
+        /// <summary>
+        /// Run an import against the Fishbowl database
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="data"></param>
         public void Import(string type, dynamic data)
         {
             dynamic cmd = new { ImportRq = new { Type = type, Rows = new { Row = data } } };
@@ -136,6 +160,11 @@ namespace FishbowlConnector
             return t;
         }
 
+        /// <summary>
+        /// Convert the DataTable object to a CSV string
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
         public static string ConvertDataTableToCsv(DataTable t)
         {
             StringBuilder sb = new StringBuilder();
@@ -163,6 +192,9 @@ namespace FishbowlConnector
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Logs out and closes the connection
+        /// </summary>
         public void Dispose()
         {
             dynamic cmd = new { LogoutRq = "" };
