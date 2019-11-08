@@ -3,7 +3,7 @@ Source code for accessing the Fishbowl API. Fishbowl's own source code examples 
 
 This API is ugly. For importing sales orders, you have to include the order details as well as any items (including shipping as an item) in the same CSV but only specify columns for the order. **Do not include column names for items.** It's a bizarre combination of JSON and CSV. Be sure to include empty value placeholders (consecutive commas) for fields that are not being imported. All columns are required and must match CSV specifications.
 
-Check https://www.fishbowlinventory.com/wiki/Fishbowl_API for full command documentation. I would also recommend downloading their Fishhook application for testing new commands.
+Check [https://www.fishbowlinventory.com/wiki/Fishbowl_API](https://www.fishbowlinventory.com/wiki/Fishbowl_API) for full command documentation. I would also recommend downloading their Fishhook application for testing new commands.
 
 Dependent on:
 
