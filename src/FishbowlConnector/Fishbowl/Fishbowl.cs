@@ -35,11 +35,11 @@ namespace FishbowlConnector
             _port = port;
             _user = user;
 
-            MD5 md5 = MD5.Create();
-            byte[] encoded = md5.ComputeHash(Encoding.ASCII.GetBytes(password));
-            string md5Pass = Convert.ToBase64String(encoded, 0, 16);
+            //MD5 md5 = MD5.Create();
+            //byte[] encoded = md5.ComputeHash(Encoding.ASCII.GetBytes(password));
+            //string md5Pass = Convert.ToBase64String(encoded, 0, 16);
 
-            _pass = md5Pass;
+            _pass = password;
         }
 
         /// <summary>
