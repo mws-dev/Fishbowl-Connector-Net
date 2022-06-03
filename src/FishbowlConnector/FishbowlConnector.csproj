@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
     <Authors>Adam Humpherys, Manwaring Web Solutions</Authors>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <PackageId>FishbowlConnector.Net.Json</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <RepositoryUrl>https://github.com/manwaring-web-solutions/Fishbowl-Connector-Net</RepositoryUrl>
@@ -11,14 +11,23 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Copyright>© 2019 Manwaring Web Solutions</Copyright>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>
+			$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb
+		</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <Description>Package for interacting with the Fishbowl Connector API from a .NET project using JSON.</Description>
-    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <PackageReleaseNotes>Fixed issue with authentication since Fishbowl's system broke it, updated frameworks and dependency</PackageReleaseNotes>
     <PackageProjectUrl>https://manwaring-web-solutions.github.io/Fishbowl-Connector-Net/</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="LumenWorksCsvReader2" Version="4.3.0" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="Microsoft.CSharp" Version="4.6.0" />
