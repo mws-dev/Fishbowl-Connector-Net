@@ -14,4 +14,4 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Build
-      run: dotnet build --configuration Release
+      run: dotnet build src\FishbowlConnector.sln --configuration Release
