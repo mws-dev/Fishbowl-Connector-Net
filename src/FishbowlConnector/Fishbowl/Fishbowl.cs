@@ -1,4 +1,4 @@
-﻿using LumenWorks.Framework.IO.Csv;
+﻿using CsvReader;
 using Newtonsoft.Json;
 using System;
 using System.Data;
