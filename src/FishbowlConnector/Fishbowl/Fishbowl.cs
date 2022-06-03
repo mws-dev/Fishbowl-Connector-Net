@@ -141,7 +141,7 @@ namespace FishbowlConnector
                 row += "\"";
             }
 
-            using (var csv = new CsvReader(new StringReader(row), true, ','))
+            using (var csv = new CsvReader.CsvReader(new StringReader(row), true, ','))
             {
                 int fieldCount = csv.FieldCount;
 
