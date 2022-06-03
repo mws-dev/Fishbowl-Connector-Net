@@ -7,7 +7,7 @@ Check [https://www.fishbowlinventory.com/wiki/Fishbowl_API](https://www.fishbowl
 
 Dependent on:
 
-- [LumenWorks.Framework.IO](https://www.nuget.org/packages/LumenWorks.Framework.IO/)
+- [LumenWorksCsvReader2](https://www.nuget.org/packages/LumenWorksCsvReader2/)
 - [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)
 
 ## Example Usage
