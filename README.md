@@ -1,3 +1,5 @@
+# ⚠️ This API is now classified as "legacy" and has been replaced by a REST API. As such, this library has been retired. ⚠️
+
 # Fishbowl API Connector
 
 Source code for accessing the Fishbowl API. Fishbowl's own source code examples are outdated and mostly irrelevant.
